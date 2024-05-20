@@ -16,7 +16,7 @@ These algorithms typically create chunks based on a fixed number of characters o
 
 Moreover, if the mixed context text mentions four different systems of the human body at different places, a similarity search with a top-k value of 2 would fetch at most two relevant chunks. This limitation sacrifices the quality of the produced output when these chunks are passed as context to an LLM in subsequent API calls, as the model may not have access to all the necessary information to generate a comprehensive response.
 
-## Indexify's Innovative Pipeline: A Comprehensive Solution
+## Indexify's LLM Assisted Restructuring for RAG (LLMARRAG) Pipeline
 
 At Indexify, we recognized the need for a more efficient and accurate approach to processing mixed context texts in RAG systems. Our team has developed an innovative pipeline that combines cutting-edge technologies and techniques to overcome the limitations of existing solutions.
 
@@ -52,7 +52,7 @@ Indexify's pipeline leverages the power of the Arctic model to create high-quali
 
 By utilizing Snowflake's Arctic model, Indexify ensures that the RAG system can effectively identify and retrieve the chunks that are most pertinent to the given query. This enhances the accuracy of the generated responses and greatly improves the overall performance of the RAG system.
 
-## Creating this Indexify Pipeline is Simple
+## Creating Indexify's LLMARRAG Pipeline is Simple
 
 #### Install Indexify, Start the Server & Download the Extractors
 
@@ -110,7 +110,7 @@ client.create_extraction_graph(extraction_graph)
 client.upload_file("llmrag", "random_topics.pdf")
 ```
 
-## The Impact of Indexify's Pipeline
+## The Impact of Indexify's LLMARRAG Pipeline
 
 Indexify's innovative pipeline has the potential to revolutionize the way RAG systems process and utilize mixed context texts. By addressing the limitations of existing approaches and leveraging cutting-edge technologies, our solution offers several key benefits:
 
@@ -121,6 +121,22 @@ Indexify's innovative pipeline has the potential to revolutionize the way RAG sy
 3. **Scalability**: Indexify's pipeline is designed to handle large mixed context texts effectively. With the Gemini 1.5 Flash LLM's 2M context length and the efficient chunking algorithm, our solution can scale to process extensive documents and datasets, making it suitable for a wide range of applications and domains.
 
 4. **Flexibility and Customization**: As an Open Source data framework, Indexify provides users with the flexibility to customize and extend the pipeline according to their specific needs. Researchers and developers can leverage our robust extractors, integrate their own models and algorithms, and adapt the pipeline to suit their particular use cases, fostering innovation and collaboration within the community.
+
+## Benchmarking
+
+| Metrics                                                                          | Scores |
+| -------------------------------------------------------------------------------- | ------ |
+| Number of chunks required by traditional RAG to include all relevant information | 5      |
+| Number of chunks required by LLMARRAG to include all relevant information        | 2      |
+|                                                                                  |        |
+| Number of tokens required by traditional RAG to include all relevant information | 651    |
+| Number of tokens required by LLMARRAG to include all relevant information        | 255    |
+|                                                                                  |        |
+| Number of irrelevant tokens in the most relevant chunk by traditional RAG        | 100    |
+| Number of irrelevant tokens in the most relevant chunk by LLMARRAG               | 6      |
+|                                                                                  |        |
+| Difference between relevant and irrelevant chunks by traditional RAG             | 15.62% |
+| Difference between relevant and irrelevant chunks by LLMARRAG                    | 32.29% |
 
 ## Conclusion
 
