@@ -82,7 +82,7 @@ client = IndexifyClient()
 from indexify import ExtractionGraph
 
 extraction_graph_spec = """
-name: 'llmrag'
+name: 'llmarrag'
 extraction_policies:
    - extractor: 'tensorlake/marker'
      name: 'mdextractor'
@@ -107,7 +107,7 @@ extraction_graph = ExtractionGraph.from_yaml(extraction_graph_spec)
 client.create_extraction_graph(extraction_graph)
 ```
 ```python
-client.upload_file("llmrag", "random_topics.pdf")
+client.upload_file("llmarrag", "random_topics.pdf")
 ```
 
 ## The Impact of LLMARRAG Pipeline
