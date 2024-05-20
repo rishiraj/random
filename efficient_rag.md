@@ -135,8 +135,8 @@ Indexify's innovative pipeline has the potential to revolutionize the way RAG sy
 | Number of irrelevant tokens in the most relevant chunk by traditional RAG        | 100    |
 | Number of irrelevant tokens in the most relevant chunk by LLMARRAG               | 6      |
 |                                                                                  |        |
-| Difference between relevant and irrelevant chunks by traditional RAG             | 15.62% |
-| Difference between relevant and irrelevant chunks by LLMARRAG                    | 32.29% |
+| Difference between least but relevant and irrelevant chunks by traditional RAG   | 5.59%  |
+| Difference between least but relevant and irrelevant chunks by LLMARRAG          | 12.81% |
 
 ## Conclusion
 
