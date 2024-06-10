@@ -4,18 +4,11 @@
 
 Retrieval-augmented generation (RAG) systems have become the most popular method for natural language processing because RAG can quickly and effectively generate accurate and relevant responses. The effectiveness of RAG promises to create more accurate, precise, and efficient AI-powered applications across all domains, enabling easy and democratic access to Q&A systems, content generation, and dialogue systems. Despite how impressive current RAG systems are, they struggle to process large mixed-context texts. There are issues with chunking algorithms and inherent problems with mixed context information, no matter the medium.
 
-One of the reasons we developed Indexify is that we recognized these challenges and the shortcomings of existing tools. Idexify is an open-source data engine that builds a data pipeline for unstructured data. It combines advanced extraction methods, text restructuring, enhanced chunking, and state-of-the-art embedding creation to help you create efficient and accurate RAG systems for whatever application you need.
-
 ## The Complexity of Mixed Context Texts
 
 Mixed-context texts, such as research papers, technical documents, or even web pages, often contain cross-domain information. A single document might include information from physics, chemistry, biology, and computer science throughout its content. This heterogeneous nature of the text poses a challenge for RAG systems, which rely on identifying and retrieving relevant information to generate accurate responses.
 
-When a user asks a question such as "What are the systems that make up the human body?" RAG systems must efficiently locate and extract relevant information from mixed-context text. Although the question is simple enough, popular chunking algorithms, like LangChain's RecursiveCharacterTextSplitter, struggle in mixed-context environments.
-
 Chunking algorithms divide data into smaller, more workable parts called chunks. Chunks are based on tokens, and their size and effectiveness are governed by the model and task you're trying to perform. However, these chunks don't consider the semantic coherence of the information. As a result, in a mixed context, text-generated chunks often contain irrelevant information, and sentences are mashed together with no regard for their content. This wastes valuable tokens as these chunks are passed to subsequent API calls to Large Language Models (LLMs), which often have limited context lengths. 
-
-Mixed context texts also increase the complexity of this inherent weakness of chunking. Say your research paper mentions four different systems of the human body in different parts of the paper; a similarity search with a top-k value of 2 would fetch at most two relevant chunks. This limitation sacrifices the output quality when these chunks are passed as context to an LLM, as the model may not have access to all the necessary information to generate an accurate response.
-
 
 ## LLM Assisted Restructuring for RAG (LLMARRAG) Pipeline
 
@@ -30,11 +23,9 @@ When it comes to tackling mixed-context text Indexify uses the following workflo
 
 ### 1. Data Extraction with Robust Extractors
 
-The first step in Indexify's pipeline is to extract data from various sources like PDF files, or text documents. Unstructured data poses a significant challenge, so we have developed a fast real-time extraction engine and a collection of robust pre-built extractors.
+The first step in Indexify's pipeline is to extract data from various sources like PDF files, or text documents. Unstructured data poses a significant challenge, so we have developed a fast real-time extraction engine and a collection of robust pre-built extractors such as [Marker](https://github.com/VikParuchuri/marker).
 
-One notable integration in our pipeline is Vik Paruchuri's Marker, a powerful tool for extracting structured data from unstructured sources. By leveraging Marker, we ensure that we can comprehensively extract text data from a wide range of documents, providing a solid foundation for the subsequent steps in our pipeline.
-
-### 2. Intelligent Text Restructuring with Gemini 1.5 Flash LLM
+### 2. Text Restructuring with Gemini 1.5 Flash LLM
 
 The extracted text requires restructuring to enhance processing and retrieval efficiency.Indexify leverages Google's recently unveiled state-of-the-art Gemini 1.5 Flash LLM.
 The Gemini 1.5 Flash LLM boasts an impressive 2M context length, making it ideal for processing large mixed-context texts. By harnessing the power of this advanced language model, we can intelligently restructure the entire text of a document to group sentences from similar topics together.
@@ -120,7 +111,7 @@ Indexify is able to quickly set up nimble and dynamic extraction pipelines that 
 
 - **Efficient Processing**: Indexify's pipeline enables RAG systems to better process mixed context texts by intelligently restructuring the text and performing enhanced chunking. The topic-coherent segments and information-dense chunks allow for more resource-efficient processing, saving computer resources and tokens.
 
-- **Improved Accuracy**: The combination of intelligent text restructuring, enhanced chunking, and state-of-the-art embedding creation using Snowflake's Arctic model significantly improves the accuracy of RAG systems. By retrieving the most relevant chunks for a given query, the LLMs can generate more contextually appropriate and precise responses, enhancing the output's overall quality.
+- **Improved Accuracy**: By retrieving the most relevant chunks for a given query, the LLMs can generate more contextually appropriate and precise responses, enhancing the output's overall quality.
 
 - **Scalability**: Indexify's pipeline is designed to handle large mixed-context texts effectively. With the Gemini 1.5 Flash LLM's 2M context length and the efficient chunking algorithm, our solution can scale to process extensive documents and datasets, making it suitable for any project.
 
