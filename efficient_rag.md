@@ -10,27 +10,27 @@ One of the reasons we developed Indexify is that we recognized these challenges 
 
 Mixed-context texts, such as research papers, technical documents, or even web pages, often contain cross-domain information. A single document might include information from physics, chemistry, biology, and computer science throughout its content. This heterogeneous nature of the text poses a challenge for RAG systems, which rely on identifying and retrieving relevant information to generate accurate responses.
 
-When a user asks a question such as "What are the systems that make up the human body?" RAG systems need to efficiently locate and extract the relevant information from mixed-context text. Although the question is simple enough, popular chunking algorithms, like LangChain's RecursiveCharacterTextSplitter, struggle in mixed-context environments.
+When a user asks a question such as "What are the systems that make up the human body?" RAG systems must efficiently locate and extract relevant information from mixed-context text. Although the question is simple enough, popular chunking algorithms, like LangChain's RecursiveCharacterTextSplitter, struggle in mixed-context environments.
 
-Chunking algorithms divide data into smaller, more workable parts called chunks. Chunks are based on tokens, and their size and effectiveness are governed by the model and task you're trying to perform. However, these chunks don't take into account the semantic coherence of the information. As a result, in a mixed context text generated chunks often contain irrelevant information, and sentences are mashed together with no regard to their content. This wastes valuable tokens as these chunks are passed to subsequent API calls to Large Language Models (LLMs), which often have limited context lengths. 
+Chunking algorithms divide data into smaller, more workable parts called chunks. Chunks are based on tokens, and their size and effectiveness are governed by the model and task you're trying to perform. However, these chunks don't consider the semantic coherence of the information. As a result, in a mixed context, text-generated chunks often contain irrelevant information, and sentences are mashed together with no regard for their content. This wastes valuable tokens as these chunks are passed to subsequent API calls to Large Language Models (LLMs), which often have limited context lengths. 
 
 Mixed context texts also increase the complexity of this inherent weakness of chunking. Say your research paper mentions four different systems of the human body in different parts of the paper; a similarity search with a top-k value of 2 would fetch at most two relevant chunks. This limitation sacrifices the output quality when these chunks are passed as context to an LLM, as the model may not have access to all the necessary information to generate an accurate response.
 
 
 ## LLM Assisted Restructuring for RAG (LLMARRAG) Pipeline
 
-At Indexify, we recognized the need for faster and more accurate approaches to processing mixed context texts in RAG systems. To remedy this problem our team has developed an innovative pipeline that addresses these limitations.
+At Indexify, we recognized the need for faster and more accurate approaches to processing mixed context texts in RAG systems. To remedy this problem, our team has developed an innovative pipeline that addresses these limitations.
 
-When it comes to tackling mixed context text Indexify uses the following workflow: 
+When it comes to tackling mixed-context text Indexify uses the following workflow: 
 
 1. Data Extraction - Fast real-time extraction of any data source
-2. Text Restructuring - Semantic restructuring to prepare text for chunking
-3. Enhanced Chunking  - Producing relevant and information dense chunks 
+2. Text Restructuring - Semantic restructuring to prepare the text for chunking
+3. Enhanced Chunking  - Producing relevant and information-dense chunks 
 4. Embedding Creation - High-quality embeddings for your chunks
 
 ### 1. Data Extraction with Robust Extractors
 
-The first step in Indexify's pipeline is to extract data from various sources like PDF files, or text documents. Unstructured data poses a significant challenge, which is why we have developed a fast real-time extraction engine and a collection of robust pre-built extractors.
+The first step in Indexify's pipeline is to extract data from various sources like PDF files, or text documents. Unstructured data poses a significant challenge, so we have developed a fast real-time extraction engine and a collection of robust pre-built extractors.
 
 One notable integration in our pipeline is Vik Paruchuri's Marker, a powerful tool for extracting structured data from unstructured sources. By leveraging Marker, we ensure that we can comprehensively extract text data from a wide range of documents, providing a solid foundation for the subsequent steps in our pipeline.
 
