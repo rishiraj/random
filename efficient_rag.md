@@ -113,7 +113,7 @@ The extraction and pipeline engine used in this post, Indexify, is able to quick
 
 - **Improved Accuracy**: By retrieving the most relevant chunks for a given query, the LLMs can generate more contextually appropriate and precise responses, enhancing the output's overall quality.
 
-- **Scalability**: Indexify's pipeline is designed to handle large mixed-context texts effectively. With the Gemini 1.5 Flash LLM's 2M context length and the efficient chunking algorithm, our solution can scale to process extensive documents and datasets, making it suitable for any project.
+- **Scalability**: Indexify's pipeline is designed to handle large mixed-context texts effectively. With the Gemini 1.5 Flash LLM's 1M context length and the efficient chunking algorithm, our solution can scale to process extensive documents and datasets, making it suitable for any project.
 
 - **Flexibility and Customization**: As an open-source data framework, Indexify allows users to customize and extend the pipeline according to their specific needs. You could easily extend the pipeline to customize how text is extracted, such as using Google’s PDF Extraction model instead of marker.
 
