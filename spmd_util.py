@@ -5,7 +5,7 @@ import torch_xla.experimental.xla_sharding as xs
 import torch_xla.core.xla_model as xm
 from tqdm.auto import tqdm
 from transformers import (
-    GPTNeoXConfig, T5Config, LlamaConfig, CLIPConfig, CLIPVisionConfig, LlavaConfig, GemmaConfig,
+    GPTNeoXConfig, T5Config, LlamaConfig, CLIPConfig, CLIPVisionConfig, LlavaConfig, GemmaConfig, Gemma2Config,
     MistralConfig
 )
 
@@ -91,6 +91,7 @@ ALL_RULES = [
     (CLIPVisionConfig, CLIP_RULES),
     (LlavaConfig, LLAVA_RULES,),
     (GemmaConfig, GEMMA_RULES),
+    (Gemma2Config, GEMMA_RULES),
     (MistralConfig, LLAMA_RULES),
 ]
 
